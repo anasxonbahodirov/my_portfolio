@@ -69,7 +69,7 @@
           </h2>
           <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             Vue.js, TypeScript va Node.js bo'yicha tajribaga ega bo'lib,
-            zamonaviy web ilovalar yaratishda ixtisoslashganman.
+            zamonaviy web ilovalar yaratganman.
           </p>
         </div>
 
