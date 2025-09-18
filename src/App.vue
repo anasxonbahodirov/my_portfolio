@@ -1,42 +1,36 @@
 
 
 <template>
-  <div id="app">
+  <div id="app" class="min-h-screen bg-gray-50 dark:bg-gray-900">
     <Navbar />
-    <main>
-      <HomeSection />
-      <AboutSection />
-      <SkillsSection />
-      <ProjectsSection />
-      <ExperienceSection />
-      <EducationSection />
-      <BlogSection />
-      <ContactSection />
+    <main class="pt-16">
+      <router-view v-slot="{ Component }">
+        <transition name="page" mode="out-in">
+          <component :is="Component" />
+        </transition>
+      </router-view>
     </main>
     <FooterBar />
+    <ExitIntent />
+    <Advertisement />
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import Navbar from "./components/Navbar.vue";
-import HomeSection from "./components/HomeSection.vue";
-import AboutSection from "./components/AboutSection.vue";
-import SkillsSection from "./components/SkillsSection.vue";
-import ProjectsSection from "./components/ProjectsSection.vue";
-import ExperienceSection from "./components/ExperienceSection.vue";
-import EducationSection from "./components/EducationSection.vue";
-import BlogSection from "./components/BlogSection.vue";
-import ContactSection from "./components/ContactSection.vue";
 import FooterBar from "./components/FooterBar.vue";
+import ExitIntent from "./components/ExitIntent.vue";
+import Advertisement from "./components/Advertisement.vue";
 </script>
 
-<style scoped>
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+<style>
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.3s ease;
+}
 
-#app {
-  font-family: "Inter", Avenir, Helvetica, Arial, sans-serif;
-  background: #f6f8fa;
-  color: #232946;
-  min-height: 100vh;
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
 }
 </style>
